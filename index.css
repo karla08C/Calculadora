@@ -1,0 +1,132 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Usando Inter como a fonte padrão */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Contêiner principal da calculadora */
+.calculator-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(to right, #8b5cf6, #ec4899, #ef4444); /* Degradê de fundo */
+  padding: 16px; /* Equivalente a p-4 no Tailwind */
+}
+
+/* Estilos da calculadora */
+.calculator {
+  background-color: #1f2937; /* gray-800 */
+  padding: 24px; /* p-6 */
+  border-radius: 16px; /* rounded-2xl */
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1); /* shadow-2xl */
+  width: 100%;
+  max-width: 384px; /* max-w-sm */
+  margin-left: auto;
+  margin-right: auto;
+  transform: scale(1);
+  transition: transform 0.3s ease-in-out; /* transition-transform duration-300 */
+}
+
+.calculator:hover {
+  transform: scale(1.05); /* hover:scale-105 */
+}
+
+/* Estilos do display da calculadora */
+.calculator-display {
+  background-color: #374151; /* gray-700 */
+  color: white;
+  text-align: right;
+  padding: 16px; /* p-4 */
+  margin-bottom: 24px; /* mb-6 */
+  border-radius: 12px; /* rounded-xl */
+  font-size: 48px; /* text-4xl */
+  font-family: 'SF Mono', 'Consolas', 'Monaco', monospace; /* font-mono */
+  overflow: hidden;
+  word-wrap: break-word;
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Media queries para responsividade */
+@media (min-width: 640px) { /* sm: */
+  .calculator-display {
+    font-size: 60px; /* sm:text-5xl */
+  }
+  .calculator-container {
+    padding: 24px; /* sm:p-6 */
+  }
+}
+
+@media (min-width: 768px) { /* md: */
+  .calculator-container {
+    padding: 32px; /* md:p-8 */
+  }
+}
+
+/* Grid de botões */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px; /* gap-4 */
+}
+
+/* Estilos gerais dos botões */
+.calc-button {
+  padding: 16px; /* p-4 */
+  border-radius: 8px; /* rounded-lg */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1); /* shadow-md */
+  font-size: 20px; /* text-xl */
+  font-weight: 600; /* font-semibold */
+  background-color: #e5e7eb; /* gray-200 */
+  color: #1f2937; /* texto escuro para botões padrão */
+  transition: background-color 0.2s ease-in-out; /* transition-colors duration-200 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.calc-button:hover {
+  background-color: #d1d5db; /* hover:bg-gray-300 */
+}
+
+/* Estilos específicos para botões de operador */
+.calc-button.operator {
+  background-color: #f97316; /* orange-500 */
+  color: white;
+}
+
+.calc-button.operator:hover {
+  background-color: #ea580c; /* hover:bg-orange-600 */
+}
+
+/* Estilos específicos para botões de igual e limpar */
+.calc-button.equals-clear {
+  background-color: #3b82f6; /* blue-500 */
+  color: white;
+}
+
+.calc-button.equals-clear:hover {
+  background-color: #2563eb; /* hover:bg-blue-600 */
+}
+
+/* Estilos específicos para o botão de deletar */
+.calc-button.delete {
+  background-color: #ef4444; /* red-500 */
+  color: white;
+}
+
+.calc-button.delete:hover {
+  background-color: #dc2626; /* hover:bg-red-600 */
+}
+
+/* Estilo para botões que ocupam 2 colunas */
+.calc-button.col-span-2 {
+  grid-column: span 2 / span 2;
+}
